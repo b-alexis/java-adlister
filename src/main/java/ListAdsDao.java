@@ -5,9 +5,11 @@ public class ListAdsDao implements Ads {
     private List<Ad> ads;
 
     public List<Ad> all() {
+
         if (ads == null) {
             ads = generateAds();
         }
+
         return ads;
     }
 
