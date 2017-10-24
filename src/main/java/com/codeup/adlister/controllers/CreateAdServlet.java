@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
+
+
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,4 +29,9 @@ public class CreateAdServlet extends HttpServlet {
         DaoFactory.getAdsDao().insert(ad);
         response.sendRedirect("/ads");
     }
+    // somewhere inside a servlet
+    String searchTerm = Request.getParameter("searchTerm");
+    String sql = "SELECT * FROM products WHERE name LIKE '%" + searchTerm + "%'";
+// use the string to query the database
+
 }
